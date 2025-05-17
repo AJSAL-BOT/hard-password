@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d0d2b;
+            color: #00c3ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #00c3ff;
+            margin-bottom: 20px;
+            text-shadow: 0px 0px 10px #00c3ff;
+        }
+           
+        h2 {
+            color: #00c3ff;
+            margin-bottom: 20px;
+            text-shadow: 0px 0px 10px #00c3ff;
+        }
+        #password-container {
+            background-color: #1c1c3c;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px #00c3ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            background-color: #004080;
+            color: #00c3ff;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0059b3;
+        }
+        #password {
+            font-size: 18px;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .slider-label {
+            color: #00c3ff;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hard Password Generator</h1>
+   <h2>By :- Cyber AI</h2>
+    <div id="password-container">
+        <label for="lengthSlider" class="slider-label">Password Length: <span id="lengthValue">12</span></label>
+        <input type="range" id="lengthSlider" min="5" max="30" value="12" oninput="updateLength()">
+        <button onclick="generatePassword()">Generate Password</button>
+        <p id="password">Your password will appear here</p>
+        <button onclick="copyPassword()">Copy Password</button>
+    </div>
+
+    <script>
+        function updateLength() {
+            const length = document.getElementById("lengthSlider").value;
+            document.getElementById("lengthValue").innerText = length;
+        }
+
+        function generatePassword() {
+            const length = document.getElementById("lengthSlider").value;
+            const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+            let password = "";
+
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomIndex];
+            }
+
+            document.getElementById("password").innerText = password;
+        }
+
+        function copyPassword() {
+            const password = document.getElementById("password").innerText;
+            navigator.clipboard.writeText(password).then(() => {
+                alert("Password copied to clipboard!");
+            }).catch(err => {
+                alert("Failed to copy password: " + err);
+            });
+        }
+    </script>
+</body>
+</html>
