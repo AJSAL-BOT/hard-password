@@ -5,28 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customizable Password Generator</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #0d0d2b;
             color: #00c3ff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
         }
-        h1 {
+
+        h1, h2 {
             color: #00c3ff;
-            margin-bottom: 20px;
             text-shadow: 0px 0px 10px #00c3ff;
+            text-align: center;
+            margin: 10px 0;
         }
-           
-        h2 {
-            color: #00c3ff;
-            margin-bottom: 20px;
-            text-shadow: 0px 0px 10px #00c3ff;
-        }
+
         #password-container {
             background-color: #1c1c3c;
             padding: 20px;
@@ -35,7 +36,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 30px;
         }
+
         button {
             background-color: #004080;
             color: #00c3ff;
@@ -47,35 +52,74 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         button:hover {
             background-color: #0059b3;
         }
+
         #password {
             font-size: 18px;
             margin: 10px 0;
             font-weight: bold;
             color: #ffffff;
+            word-break: break-word;
+            text-align: center;
         }
+
         input[type="range"] {
             width: 100%;
             margin: 10px 0;
         }
+
         .slider-label {
             color: #00c3ff;
             font-weight: bold;
             margin-top: 10px;
         }
+
+        #ad-section {
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (max-width: 480px) {
+            #password-container {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Hard Password Generator</h1>
-   <h2>By :- Cyber AI</h2>
+    <h2>By :- Cyber AI</h2>
+
     <div id="password-container">
-        <label for="lengthSlider" class="slider-label">Password Length: <span id="lengthValue">12</span></label>
+        <label for="lengthSlider" class="slider-label">
+            Password Length: <span id="lengthValue">12</span>
+        </label>
         <input type="range" id="lengthSlider" min="5" max="30" value="12" oninput="updateLength()">
         <button onclick="generatePassword()">Generate Password</button>
         <p id="password">Your password will appear here</p>
         <button onclick="copyPassword()">Copy Password</button>
+    </div>
+
+    <div id="ad-section">
+        <h1>Ads 👇</h1>
+        <script type="text/javascript">
+            atOptions = {
+                'key': 'b9b50720399ed624343146cab639ae3e',
+                'format': 'iframe',
+                'height': 90,
+                'width': 728,
+                'params': {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/b9b50720399ed624343146cab639ae3e/invoke.js"></script>
+        <script async="async" data-cfasync="false" src="//pl26721987.profitableratecpm.com/ce63e741e4a8824a9eaac4d8d04245f3/invoke.js"></script>
+        <div id="container-ce63e741e4a8824a9eaac4d8d04245f3"></div>
     </div>
 
     <script>
@@ -106,18 +150,5 @@
             });
         }
     </script>
-     <h1>Ads 👇</h1>
-    <script type="text/javascript">
-	atOptions = {
-		'key' : 'b9b50720399ed624343146cab639ae3e',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/b9b50720399ed624343146cab639ae3e/invoke.js"></script>
-    <script async="async" data-cfasync="false" src="//pl26721987.profitableratecpm.com/ce63e741e4a8824a9eaac4d8d04245f3/invoke.js"></script>
-<div id="container-ce63e741e4a8824a9eaac4d8d04245f3"></div>
 </body>
 </html>
